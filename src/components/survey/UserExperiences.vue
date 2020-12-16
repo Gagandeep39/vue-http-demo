@@ -43,6 +43,7 @@ export default {
   methods: {
     loadExperience() {
       this.isLoading = true;
+      this.error = null;
       axios
         .get(`${process.env.VUE_APP_URL}`)
         .then((res) => {
