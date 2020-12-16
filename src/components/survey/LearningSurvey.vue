@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
@@ -71,6 +72,14 @@ export default {
         userName: this.enteredName,
         rating: this.chosenRating,
       });
+
+      axios
+        .post(`${process.env.VUE_APP_URL}`, {
+          userName: this.enteredName,
+          rating: this.chosenRating,
+        })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
 
       this.enteredName = '';
       this.chosenRating = null;
